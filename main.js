@@ -10,7 +10,7 @@ form.addEventListener("submit", searchForLocation)
 let target = "Medellín"
 
 const fetchResults = async (targetLocation) => {
-    let url = `http://api.weatherapi.com/v1/current.json?key=aa0903ca1d74404f89805015251312&q=${targetLocation}&aqi=no`
+    let url = `https://api.weatherapi.com/v1/current.json?key=aa0903ca1d74404f89805015251312&q=${targetLocation}&aqi=no`
     const res = await fetch(url)
     const data = await res.json()
     console.log(data)
@@ -58,4 +58,5 @@ function getDayName(number) {
         case 6:
             return "Saturday"
     }
+
 }
