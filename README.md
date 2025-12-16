@@ -22,3 +22,5 @@ Este proyecto fue desarrollado utilizando las tecnologías web fundamentales:
 * **Manejo de Eventos:** Se añade un `eventListener` al formulario (`<form>`) para capturar la acción de búsqueda.
 * **Prevención de Recarga:** Se llama a `e.preventDefault()` para evitar que la página se recargue al enviar el formulario.
 * **Actualización de la UI:** La función `updateDetails()` se encarga de inyectar la nueva información (temperatura, ubicación, condición y tiempo) en los elementos HTML correspondientes.
+
+### Para ver en vivo: https://boisterous-cat-eaaec4.netlify.app/ 
