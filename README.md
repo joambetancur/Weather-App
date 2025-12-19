@@ -23,4 +23,4 @@ Una aplicación web moderna y funcional para consultar el estado del clima en ti
 * **Font Awesome:** Iconografía para los detalles del clima.
 * **WeatherAPI:** Fuente de datos meteorológicos en tiempo real.
 
-### Para ver: 
+### Para ver: https://musical-speculoos-98e371.netlify.app/ 
