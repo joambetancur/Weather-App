@@ -6,8 +6,7 @@
 
 .container {
     width: 100%;
-    height: 84vh;
-    background-color: #B3E5FC;
+    min-height: 84vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,30 +14,66 @@
 
 .weather_container {
     color: #212121;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
 }
 
 .temperature {
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 5px;
+    width: 100%;
 }
 
 .time_location {
     font-size: 1.5rem;
-    line-height: 120%;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    margin-top: -10PX;
+}
+
+.time_location p {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.time_location span {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+    word-spacing: 2px;
 }
 
 .condition {
     margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather_icon {
+    width: 80px;
+    height: 80px;
 }
 
 nav {
     height: 90px;
     background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 form {
-    margin-top: 15px;
-    margin-left: 38%;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 .search_area {
@@ -66,4 +101,147 @@ nav form button {
 
 nav form button:hover {
     opacity: 0.8;
+}
+
+.extra_details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease;
+}
+
+.main_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 400px;
+}
+
+.extra_details:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+.detail_item {
+    text-align: center;
+}
+
+.detail_item p {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.detail_item span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.detail_item i {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #0288D1;
+    display: block;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.05);
+    }
+
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+}
+
+.weather_icon {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.2));
+    animation: float 4s ease-in-out infinite;
+    transition: filter 0.3s ease;
+}
+
+.weather_icon:hover {
+    filter: drop-shadow(0px 12px 15px rgba(255, 255, 255, 0.4)) brightness(1.1);
+}
+
+.day-mode {
+    background-color: #B3E5FC;
+    transition: background-color 0.8s ease;
+}
+
+.night-mode {
+    background-color: #263238;
+    color: white !important;
+    transition: background-color 0.8s ease;
+}
+
+.night-mode .detail_item i {
+    color: #4FC3F7;
+}
+
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    nav form button {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .temperature {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .temperature {
+        font-size: 3.5rem;
+    }
+
+    .time_location {
+        font-size: 1.2rem;
+    }
+
+    .extra_details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .forecast_container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forecast_card {
+        width: 80%;
+    }
 }

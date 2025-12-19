@@ -7,21 +7,52 @@
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
     <link rel="shortcut icon" href="tiempo.png" type="image/x-icon">
-    <title>Weather Today</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Weather</title>
 </head>
 
 <body>
     <div class="container">
         <div class="weather_container">
-            <div class="temperature">
-                <p>20 °C</p>
+            <div class="main_info">
+                <div class="temperature">
+                    <p>20 °C</p>
+                </div>
+                <div class="time_location">
+                    <p>Medellín</p>
+                    <span>6:52 - Friday 2025/12/12</span>
+                </div>
+                <div class="condition">
+                    <img src="" alt="weather-icon" class="weather_icon">
+                    <p>Mist</p>
+                </div>
             </div>
-            <div class="time_location">
-                <p>Medellín</p>
-                <span>6:52 - Friday 2025/12/12</span>
-            </div>
-            <div class="condition">
-                <p>Mist</p>
+            <div class="extra_details">
+                <div class="detail_item">
+                    <i class="fa-solid fa-droplet"></i>
+                    <p>Humidity</p>
+                    <span id="humidity_val">--</span>
+                </div>
+                <div class="detail_item">
+                    <i class="fa-solid fa-wind"></i>
+                    <p>Wind Speed</p>
+                    <span id="wind_val">--</span>
+                </div>
+                <div class="detail_item">
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <p>Feels Like</p>
+                    <span id="feels_like_val">--</span>
+                </div>
+                <div class="detail_item">
+                    <i class="fa-solid fa-sun"></i>
+                    <p>UV Index</p>
+                    <span id="uv_val">--</span>
+                </div>
+                <div class="detail_item">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <p>Pressure</p>
+                    <span id="pressure_val">--</span>
+                </div>
             </div>
         </div>
     </div>
