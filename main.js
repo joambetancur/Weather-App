@@ -12,40 +12,36 @@ const feelsLikeField = document.querySelector("#feels_like_val");
 const uvField = document.querySelector("#uv_val");
 const pressureField = document.querySelector("#pressure_val");
 
-form.addEventListener("submit", searchForLocation)
-
-let target = "Medellín"
+form.addEventListener("submit", searchForLocation);
 
 const fetchResults = async (targetLocation) => {
-    let url = `https://api.weatherapi.com/v1/current.json?key=aa0903ca1d74404f89805015251312&q=${targetLocation}&aqi=no`
-    const res = await fetch(url)
-    const data = await res.json()
-    console.log(data)
-    let locationName = data.location.name
-    let time = data.location.localtime
-    let temperature = data.current.temp_c
-    let condition = data.current.condition.text
-    let icon = data.current.condition.icon
-    let isDay = data.current.is_day;
-    let humidity = data.current.humidity;
-    let wind = data.current.wind_kph;
-    let feelsLike = data.current.feelslike_c;
-    let uv = data.current.uv;
-    let pressure = data.current.pressure_mb;
+    try {
+        const url = `https://api.weatherapi.com/v1/current.json?key=aa0903ca1d74404f89805015251312&q=${targetLocation}&aqi=no`;
+        const res = await fetch(url);
 
-    updateDetails(temperature, locationName, time, condition, icon, isDay, humidity, wind, feelsLike, uv, pressure)
-}
+        if (!res.ok) throw new Error("City not found");
 
-function updateDetails(temperature, locationName, time, condition, icon, isDay, humidity, wind, feelsLike, uv, pressure) {
+        const data = await res.json();
+        const { name } = data.location;
+        const { localtime } = data.location;
+        const { temp_c, condition, is_day, humidity, wind_kph, feelslike_c, uv, pressure_mb } = data.current;
+
+        updateDetails(temp_c, name, localtime, condition.text, condition.icon, is_day, humidity, wind_kph, feelslike_c, uv, pressure_mb);
+
+    } catch (error) {
+        alert("Location not found. Please try again.");
+    }
+};
+
+function updateDetails(temp, locationName, time, condition, icon, isDay, humidity, wind, feelsLike, uv, pressure) {
     const dateObject = new Date(time);
-    let currentDay = getDayName(dateObject.getDay());
-    let splitDate = time.split(" ")[0]
-    let splitTime = time.split(" ")[1]
+    const currentDay = dateObject.toLocaleDateString('en-US', { weekday: 'long' });
+    const [splitDate, splitTime] = time.split(" ");
 
-    temperatureField.innerText = `${temperature} °C`
-    locationField.innerText = locationName
+    temperatureField.innerText = `${temp} °C`;
+    locationField.innerText = locationName;
     dateAndTimeField.innerText = `${currentDay}, ${splitDate} | ${splitTime}`;
-    conditionField.innerText = condition
+    conditionField.innerText = condition;
     conditionIcon.src = `https:${icon}`;
     humidityField.innerText = `${humidity}%`;
     windField.innerText = `${wind} km/h`;
@@ -53,41 +49,36 @@ function updateDetails(temperature, locationName, time, condition, icon, isDay, 
     uvField.innerText = uv;
     pressureField.innerText = `${pressure} hPa`;
 
-    if (isDay === 1) {
-        container.classList.add("day-mode");
-        container.classList.remove("night-mode");
-    } else {
-        container.classList.add("night-mode");
-        container.classList.remove("day-mode");
-    }
+    container.classList.toggle("day-mode", isDay === 1);
+    container.classList.toggle("night-mode", isDay !== 1);
+
     const weatherContainer = document.querySelector(".weather_container");
     weatherContainer.style.color = (isDay === 1) ? "#212121" : "#FFFFFF";
 }
 
 function searchForLocation(e) {
-    e.preventDefault()
-    target = searchField.value
-    fetchResults(target)
-}
-
-fetchResults(target)
-
-function getDayName(number) {
-    switch (number) {
-        case 0:
-            return "Sunday"
-        case 1:
-            return "Monday"
-        case 2:
-            return "Tuesday"
-        case 3:
-            return "Wednesday"
-        case 4:
-            return "Thursday"
-        case 5:
-            return "Friday"
-        case 6:
-            return "Saturday"
+    e.preventDefault();
+    if (searchField.value.trim() !== "") {
+        fetchResults(searchField.value);
+        searchField.value = "";
     }
 }
 
+function getLocalWeather() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                fetchResults(`${lat},${lon}`);
+            },
+            () => {
+                fetchResults("Medellín");
+            }
+        );
+    } else {
+        fetchResults("Medellín");
+    }
+}
+
+getLocalWeather();
