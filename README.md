@@ -1,5 +1,7 @@
 # 🌦️ Weather App
 
+### Para ver: https://genuine-lily-740253.netlify.app/
+
 Una aplicación web moderna y funcional para consultar el estado del clima en tiempo real. Este proyecto utiliza la API de WeatherAPI para obtener datos meteorológicos precisos y presenta una interfaz dinámica que se adapta según la hora del día de la ubicación consultada.
 
 ## ✨ Características
@@ -33,4 +35,4 @@ Una aplicación web moderna y funcional para consultar el estado del clima en ti
 La API key está expuesta únicamente con fines demostrativos.
 En un entorno de producción, esta información debería manejarse desde el backend o mediante variables de entorno.
 
-### Para ver: https://musical-speculoos-98e371.netlify.app/ 
+
