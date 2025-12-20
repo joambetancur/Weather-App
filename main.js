@@ -11,6 +11,43 @@ const windField = document.querySelector("#wind_val");
 const feelsLikeField = document.querySelector("#feels_like_val");
 const uvField = document.querySelector("#uv_val");
 const pressureField = document.querySelector("#pressure_val");
+const suggestionsBox = document.querySelector("#suggestions");
+
+searchField.addEventListener("input", async (e) => {
+    const query = e.target.value.trim();
+
+    if (query.length < 3) {
+        suggestionsBox.innerHTML = "";
+        return;
+    }
+
+    try {
+        const res = await fetch(`https://api.weatherapi.com/v1/search.json?key=aa0903ca1d74404f89805015251312&q=${query}`);
+        const locations = await res.json();
+
+        suggestionsBox.innerHTML = locations
+            .map(loc => `<div class="suggestion-item" data-name="${loc.name}">${loc.name}, ${loc.country}</div>`)
+            .join("");
+
+        document.querySelectorAll(".suggestion-item").forEach(item => {
+            item.addEventListener("click", () => {
+                const selectedCity = item.getAttribute("data-name");
+                searchField.value = selectedCity;
+                suggestionsBox.innerHTML = "";
+                fetchResults(selectedCity);
+            });
+        });
+
+    } catch (error) {
+        console.error("Error al obtener sugerencias:", error);
+    }
+});
+
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search_container")) {
+        suggestionsBox.innerHTML = "";
+    }
+});
 
 form.addEventListener("submit", searchForLocation);
 

@@ -58,7 +58,10 @@
     </div>
     <nav>
         <form>
-            <input type="text" placeholder="Search for a Location" class="search_area">
+            <div class="search_container"> <input type="text" placeholder="Search for a Location" class="search_area"
+                    autocomplete="off">
+                <div id="suggestions" class="suggestions_box"></div>
+            </div>
             <button type="submit" class="search_button">Search location</button>
         </form>
     </nav>
