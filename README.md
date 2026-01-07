@@ -5,6 +5,8 @@
 Aplicación web moderna para consultar el estado del clima en tiempo real, con geolocalización automática, fallback inteligente y theming dinámico según la hora del día en la ubicación consultada.
 El proyecto fue diseñado con enfoque en experiencia de usuario (UX), manejo robusto de errores y arquitectura clara en JavaScript Vanilla, simulando escenarios reales de aplicaciones productivas.
 
+## Pantalla Principal: <img width="648" height="410" alt="App" src="https://github.com/user-attachments/assets/cf6c01ae-e4be-42e4-9c17-c5a1c41a5f59" />
+
 ## 📌 Descripción del Proyecto
 
 WeatherNow permite a los usuarios consultar información meteorológica precisa de cualquier ciudad del mundo o de su ubicación actual, mostrando datos relevantes de forma clara y visualmente atractiva.
