@@ -1,8 +1,14 @@
-# 🌦️ Aplicación de clima con geolocalización, fallback automático, theming dinámico y manejo robusto de errores.
+# 🌦️ WeatherNow — Real-Time Weather App
 
 ### Para ver: https://weather-app-beta-one-34.vercel.app/ 
 
-Una aplicación web moderna y funcional para consultar el estado del clima en tiempo real. Este proyecto utiliza la API de WeatherAPI para obtener datos meteorológicos precisos y presenta una interfaz dinámica que se adapta según la hora del día de la ubicación consultada.
+Aplicación web moderna para consultar el estado del clima en tiempo real, con geolocalización automática, fallback inteligente y theming dinámico según la hora del día en la ubicación consultada.
+El proyecto fue diseñado con enfoque en experiencia de usuario (UX), manejo robusto de errores y arquitectura clara en JavaScript Vanilla, simulando escenarios reales de aplicaciones productivas.
+
+## 📌 Descripción del Proyecto
+
+WeatherNow permite a los usuarios consultar información meteorológica precisa de cualquier ciudad del mundo o de su ubicación actual, mostrando datos relevantes de forma clara y visualmente atractiva.
+La aplicación garantiza que nunca se muestre una interfaz vacía, incluso cuando el usuario rechaza permisos de geolocalización o ocurre un error en la búsqueda.
 
 ## ✨ Características
 
@@ -21,11 +27,13 @@ Una aplicación web moderna y funcional para consultar el estado del clima en ti
 * **Diseño Animado:** Iconos meteorológicos con efectos de flotación y transiciones suaves.
 * **Totalmente Responsivo:** Diseño adaptado para dispositivos móviles, tablets y escritorio mediante Media Queries.
 
-## 📚 Aprendizajes
-- Consumo de APIs REST usando fetch y async/await
-- Manejo de estados dinámicos en la interfaz (day/night mode)
-- Manipulación del DOM en JavaScript puro
-- Diseño responsive y animaciones con CSS
+## 🧠 Retos Técnicos Abordados
+
+- Manejo de asincronía con fetch y async/await.
+- Coordinación entre geolocalización, fallback y búsqueda manual.
+- Sincronización del estado visual con datos de la API (day/night).
+- Prevención de estados vacíos o errores silenciosos.
+- Manipulación eficiente del DOM sin frameworks.
 
 ## 🚀 Tecnologías Utilizadas
 
@@ -34,6 +42,15 @@ Una aplicación web moderna y funcional para consultar el estado del clima en ti
 * **JavaScript (ES6):** Consumo de API mediante `fetch` y manipulación dinámica del DOM.
 * **Font Awesome:** Iconografía para los detalles del clima.
 * **WeatherAPI:** Fuente de datos meteorológicos en tiempo real.
+
+## Mejoras Futuras
+
+- Migrar la aplicación a React
+- Componentes reutilizables
+- Hooks (useEffect, useState)
+- Custom hook useWeather
+- Implementar TypeScript
+- Cachear resultados con LocalStorage
 
 ## ⚠️ Nota sobre la API Key
 Por motivos de simplicidad en este portafolio, la API Key se encuentra en el frontend. Soy consciente de que en aplicaciones escalables esto debe gestionarse mediante Variables de Entorno o un Proxy Server para evitar su exposición.
