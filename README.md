@@ -1,4 +1,4 @@
-# 🌦️ Weather App
+# 🌦️ Aplicación de clima con geolocalización, fallback automático, theming dinámico y manejo robusto de errores.
 
 ### Para ver: https://weather-app-beta-one-34.vercel.app/ 
 
