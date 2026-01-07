@@ -50,7 +50,7 @@ La aplicación garantiza que nunca se muestre una interfaz vacía, incluso cuand
 - Hooks (useEffect, useState)
 - Custom hook useWeather
 - Implementar TypeScript
-- Cachear resultados con LocalStorage
+- Resultados con LocalStorage
 
 ## ⚠️ Nota sobre la API Key
 Por motivos de simplicidad en este portafolio, la API Key se encuentra en el frontend. Soy consciente de que en aplicaciones escalables esto debe gestionarse mediante Variables de Entorno o un Proxy Server para evitar su exposición.
